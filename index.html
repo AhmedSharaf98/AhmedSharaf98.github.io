@@ -43,7 +43,7 @@
         <div class="container">
             <h2>Days Remaining</h2>
             <div class="label" id="yellow_label"></div>
-            <h4>Tdreb</h4>
+            <h4>Pre</h4>
             <div class="label" id="red_label"></div>
             <h4>Done</h4>
             <div class="label" id="blue_label"></div>
@@ -55,7 +55,7 @@
                         <canvas id="ramdan_chart" width="400" height="400"></canvas>
                     </div>
                 </div>
-                <div class="chart_container">
+                <!-- <div class="chart_container">
                     <h3>Till 1 November</h3>
                     <div class="pie_chart_container">
                         <canvas id="1_9_chart" width="400" height="400"></canvas>
@@ -66,7 +66,7 @@
                     <div class="pie_chart_container">
                         <canvas id="end_chart" width="400" height="400"></canvas>
                     </div>
-                </div>
+                </div> -->
             </div>   
         </div>
         <script>
@@ -75,7 +75,7 @@
             const ramdan = new Date("2022-04-02").getTime();
             const _1_9 = new Date("2022-09-01").getTime();
             const end = new Date("2022-12-01").getTime();
-            const now = new Date().getTime();
+            const now = new Date().getTime() + 120000;
             const days_factor = (1000 * 3600 * 24);
             const tdreb_in_days = Math.floor((official_start - start) / days_factor);
             const elapsed_in_days = Math.floor((now - official_start) / days_factor);
@@ -94,7 +94,25 @@
                 ],
                 borderWidth: 1
             };
-            const charts = ['ramdan_chart', '1_9_chart', 'end_chart'];
+
+            const options = {
+                tooltips: {
+                    enabled: false
+                },
+                plugins: {
+                    datalabels: {
+                    formatter: (value, ctx) => {
+                        let sum = ctx.dataset._meta[0].total;
+                        let percentage = (value * 100 / sum).toFixed(2) + "%";
+                        return percentage;
+                    },
+                    color: '#fff',
+                    }
+                }
+            };
+
+            // const charts = ['ramdan_chart', '1_9_chart', 'end_chart'];
+            const charts = ['ramdan_chart'];
             const data = [
                 [tdreb_in_days, elapsed_in_days, Math.floor((ramdan - now) / days_factor)],
                 [tdreb_in_days, elapsed_in_days, Math.floor((_1_9 - now) / days_factor)],
@@ -109,7 +127,8 @@
                             data: data[index],
                             ...common_config
                         }]
-                    }
+                    },
+                    options: options,
                 });
             })
             
