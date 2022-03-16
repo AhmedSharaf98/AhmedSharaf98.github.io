@@ -56,9 +56,9 @@
                     </div>
                 </div>
                 <!-- <div class="chart_container">
-                    <h3>Till 1 November</h3>
+                    <h3>Till 15 August</h3>
                     <div class="pie_chart_container">
-                        <canvas id="1_9_chart" width="400" height="400"></canvas>
+                        <canvas id="15_8_chart" width="400" height="400"></canvas>
                     </div>
                 </div>
                 <div class="chart_container">
@@ -73,7 +73,7 @@
             const start = new Date("2021-10-23").getTime();
             const official_start = new Date("2021-12-01").getTime();
             const ramdan = new Date("2022-04-02").getTime();
-            const _1_9 = new Date("2022-09-01").getTime();
+            const _15_8 = new Date("2022-08-15").getTime();
             const end = new Date("2022-12-01").getTime();
             const now = new Date().getTime() + 120000;
             const days_factor = (1000 * 3600 * 24);
@@ -111,11 +111,11 @@
                 }
             };
 
-            // const charts = ['ramdan_chart', '1_9_chart', 'end_chart'];
+            // const charts = ['ramdan_chart', '15_8_chart', 'end_chart'];
             const charts = ['ramdan_chart'];
             const data = [
                 [tdreb_in_days, elapsed_in_days, Math.floor((ramdan - now) / days_factor)],
-                [tdreb_in_days, elapsed_in_days, Math.floor((_1_9 - now) / days_factor)],
+                [tdreb_in_days, elapsed_in_days, Math.floor((_15_8 - now) / days_factor)],
                 [tdreb_in_days, elapsed_in_days, Math.floor((end - now) / days_factor)]
             ]
             charts.forEach((chart, index) => {
