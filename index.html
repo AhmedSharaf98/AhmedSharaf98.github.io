@@ -55,19 +55,19 @@
                         <canvas id="eid_chart" width="400" height="400"></canvas>
                     </div>
                 </div> -->
-                <div class="chart_container">
+                <!-- <div class="chart_container">
                     <h3>Till Adha Eid</h3>
                     <div class="pie_chart_container">
                         <canvas id="eid_chart" width="400" height="400"></canvas>
                     </div>
-                </div>
-                <!-- <div class="chart_container">
+                </div> -->
+                <div class="chart_container">
                     <h3>Till 15 August</h3>
                     <div class="pie_chart_container">
                         <canvas id="15_8_chart" width="400" height="400"></canvas>
                     </div>
                 </div>
-                <div class="chart_container">
+                <!-- <div class="chart_container">
                     <h3>Till The End</h3>
                     <div class="pie_chart_container">
                         <canvas id="end_chart" width="400" height="400"></canvas>
@@ -119,11 +119,11 @@
             };
 
             // const charts = ['ramdan_chart', 'eid_chart', '15_8_chart', 'end_chart'];
-            const charts = [ 'eid_chart'];
+            const charts = [ '15_8_chart'];
             const data = [
                 // [tdreb_in_days, elapsed_in_days, Math.floor((ramdan - now) / days_factor)],
-                [tdreb_in_days, elapsed_in_days, Math.floor((eid - now) / days_factor)],
-                // [tdreb_in_days, elapsed_in_days, Math.floor((_15_8 - now) / days_factor)],
+                // [tdreb_in_days, elapsed_in_days, Math.floor((eid - now) / days_factor)],
+                [tdreb_in_days, elapsed_in_days, Math.floor((_15_8 - now) / days_factor)],
                 // [tdreb_in_days, elapsed_in_days, Math.floor((end - now) / days_factor)]
             ]
             charts.forEach((chart, index) => {
