@@ -61,19 +61,20 @@
                         <canvas id="eid_chart" width="400" height="400"></canvas>
                     </div>
                 </div> -->
-                <div class="chart_container">
+                <!-- <div class="chart_container">
                     <h3>Till 15 August</h3>
                     <div class="pie_chart_container">
                         <canvas id="15_8_chart" width="400" height="400"></canvas>
                     </div>
-                </div>
-                <!-- <div class="chart_container">
+                </div> -->
+                <div class="chart_container">
                     <h3>Till The End</h3>
                     <div class="pie_chart_container">
                         <canvas id="end_chart" width="400" height="400"></canvas>
                     </div>
-                </div> -->
-            </div>   
+                </div>
+            </div>
+            <div id="day_rem" style="margin-top: 40px; font-size: 96px;"></div>
         </div>
         <script>
             const start = new Date("2021-10-23").getTime();
@@ -87,6 +88,7 @@
             const tdreb_in_days = Math.floor((official_start - start) / days_factor);
             const elapsed_in_days = Math.floor((now - official_start) / days_factor);
             
+            document.getElementById("day_rem").innerText = Math.floor((end - now) / days_factor)
             const common_config = {
                 label: 'Remaining Days',
                 backgroundColor: [
@@ -119,12 +121,12 @@
             };
 
             // const charts = ['ramdan_chart', 'eid_chart', '15_8_chart', 'end_chart'];
-            const charts = [ '15_8_chart'];
+            const charts = [ 'end_chart'];
             const data = [
                 // [tdreb_in_days, elapsed_in_days, Math.floor((ramdan - now) / days_factor)],
                 // [tdreb_in_days, elapsed_in_days, Math.floor((eid - now) / days_factor)],
-                [tdreb_in_days, elapsed_in_days, Math.floor((_15_8 - now) / days_factor)],
-                // [tdreb_in_days, elapsed_in_days, Math.floor((end - now) / days_factor)]
+                //[tdreb_in_days, elapsed_in_days, Math.floor((_15_8 - now) / days_factor)],
+                [tdreb_in_days, elapsed_in_days, Math.floor((end - now) / days_factor)]
             ]
             charts.forEach((chart, index) => {
                 const ctx = document.getElementById(chart).getContext('2d');
