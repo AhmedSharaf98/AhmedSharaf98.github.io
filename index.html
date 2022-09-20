@@ -42,8 +42,6 @@
     <body>
         <div class="container">
             <h2>Days Remaining</h2>
-            <div class="label" id="yellow_label"></div>
-            <h4>Pre</h4>
             <div class="label" id="red_label"></div>
             <h4>Done</h4>
             <div class="label" id="blue_label"></div>
@@ -85,19 +83,19 @@
             const end = new Date("2022-12-01").getTime();
             const now = new Date().getTime() + 120000;
             const days_factor = (1000 * 3600 * 24);
-            const tdreb_in_days = Math.floor((official_start - start) / days_factor);
-            const elapsed_in_days = Math.floor((now - official_start) / days_factor);
+            // const tdreb_in_days = Math.floor((official_start - start) / days_factor);
+            const elapsed_in_days = Math.floor((now - start) / days_factor);
             
             document.getElementById("day_rem").innerText = Math.floor((end - now) / days_factor)
             const common_config = {
                 label: 'Remaining Days',
                 backgroundColor: [
-                    'rgba(255, 205, 86, 0.9)',
+                    // 'rgba(255, 205, 86, 0.9)',
                     'rgba(255, 99, 132, 0.9)',
                     'rgba(54, 162, 235, 0.9)'
                 ],
                 borderColor: [
-                    'rgba(255, 205, 86, 0.9)',
+                    // 'rgba(255, 205, 86, 0.9)',
                     'rgba(255, 99, 132, 1)',
                     'rgba(54, 162, 235, 1)'
                 ],
@@ -126,7 +124,7 @@
                 // [tdreb_in_days, elapsed_in_days, Math.floor((ramdan - now) / days_factor)],
                 // [tdreb_in_days, elapsed_in_days, Math.floor((eid - now) / days_factor)],
                 //[tdreb_in_days, elapsed_in_days, Math.floor((_15_8 - now) / days_factor)],
-                [tdreb_in_days, elapsed_in_days, Math.floor((end - now) / days_factor)]
+                [elapsed_in_days, Math.floor((end - now) / days_factor)]
             ]
             charts.forEach((chart, index) => {
                 const ctx = document.getElementById(chart).getContext('2d');
